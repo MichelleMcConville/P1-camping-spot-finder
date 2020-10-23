@@ -8,52 +8,35 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./styles/style1.css">
-  <title>Team #13</title>
+  <link rel="stylesheet" href="./assets/styles/style.css">
+  <link rel="icon" type="image/png" href="./assets/images/favicon.ico">
+  <title>Camping Spot Finder by Team #13</title>
 </head>
 
 <body>
-  <main class="container">
-    <h1>Camping Spot 🏕️ Finder</h1>
-    <div class="row">
-
-      <div class="col s3">col-L
-
-        <form>
-          <input class="subject" placeholder="Enter 2-digit State" maxlength="2">
-          <button id="searchBtn" type="submit"><i class="fa fa-search"></i>This needs to be an Icon</button>
-        </form>
-        <hr>
-
-        <p>dynamically build states buttons below</p>
-        <p>state #1</p>
-        <p>state #2</p>
-        <p>State #3</p>
-        <p>State #4</p>
-        <br>
-      </div>
-
-      <div class="col s9">col-R-T
+    <header>
+        <h1 style="text-align:center;">Camping Spot 🏕️ Finder</h1>
+    </header>
+    <main class="conatiner">
+      <section class="row">
+        <article class="col s2">
+          <form action="">
+            <h6 style="text-align:center;">Enter State Code:</h6><br>
+            <input type="text" id="addState" name="addState" value="" placeholder="Enter 2-digit State" maxlength="2">
+            <button class='btn btn-primary' id='searchBtn'><i class='fa fa-search'></i></button>
+          </form>
+        </article>
+        <section id="stateList"></section>
+      </section>
+      <section class="col s10">
         <br><br>
-        <p>Dynamically building collapsible buttons below</p> 
-        <ul id="collapsibleBtn" class="collapsible">Campground #1</ul>
-      </div>
-
-    </div>  
-
-    <footer>footer - Our names go HERE 🙃</footer>
-   
-    <div class="row"> <!-- temp section need to remove later -->
-      <br>
-      <p>This is just for other information needed, this is not part of the design</p>
-      <br>
-      <p>1. We need to come up with an application name</p>
-      <p>2. We need to find a 2nd API site like directions, weather or even images</p>
-      <br>
-    </div>
-    
-  </main>
-
+        <!-- Dynamically building collapsible buttons-->
+        <ul id="collapsibleBtn" class="collapsible"></ul> 
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Made with ❤️️ Michelle McConville, Julian Viso and Md Mahbubur Rahman</p>
+  </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
