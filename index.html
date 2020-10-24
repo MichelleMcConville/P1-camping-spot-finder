@@ -2,13 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/styles/style.css">
+  <link rel="icon" type="image/png" href="./assets/images/favicon.ico">
+  <title>Camping Spot Finder by Team #13</title>
 </head>
 
 <body>
-    
+    <header>
+        <h1 style="text-align:center;">Camping Spot 🏕️ Finder</h1>
+    </header>
+    <main class="conatiner">
+      <section class="row">
+        <article class="col s2">
+          <form action="">
+            <h6 style="text-align:center;">Enter State Code:</h6><br>
+            <input type="text" id="addState" name="addState" value="" placeholder="Enter 2-digit State Code" maxlength="2">
+            <button class='btn btn-primary' id='searchBtn'><i class='fa fa-search'></i></button>
+          </form>
+        </article>
+        <section id="stateList"></section>
+      </section>
+      <section class="col s10">
+        <br><br>
+        <!-- Dynamically building collapsible buttons-->
+        <ul id="collapsibleBtn" class="collapsible"></ul> 
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Made with ❤️️ Michelle McConville, Julian Viso and Md Mahbubur Rahman</p>
+  </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-
 </html>
