@@ -1,62 +1,96 @@
-body {
-    display: flex;
-    justify-content: center;
-    
-  }
-  
-  h1 {
-    margin: 8px;
-    text-align: center;
-  }
-  
-  h3 {
-    margin: 8px;
-    text-align: center;
-  }
+/************************/
+/*        Global        */
+/************************/
 
-  .btn {
-    border: 1px solid gray;
-    margin: 2px;
-    background-color: rgb(44, 65, 44);
-    width: 100%;
-  }
+body {
+  display: flex;
+  justify-content: center;
   
-  .container {
-    border: 2px solid hotpink;
-    width: 90%;
-  }
-  
-  .row{ 
-    border: 2px solid blue;
-    margin: 2px;
-    padding: 2px;
-  }
-  
-  .row .col.s3 {
-    float: left;
-    margin: 2px 0 0 0;
-    padding: 10px;
-  }
-  
-  .row .col.s9 {
-    float: right;
-    margin: 2px 0 0 0;
-    padding: 10px;
-  }
-  
-  .col{ 
-    border: 2px solid greenyellow;
-    display: inline;
-    margin: 2px;
-    padding: 10px;
-    width: 100%;
-  } 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:gray;
-    color: white;
-    text-align: center;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:gray;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin: 8px;
+  text-align: center;
+}
+
+h3 {
+  margin: 8px;
+  text-align: center;
+}
+
+/************************/
+/*        Classes       */
+/************************/
+
+.btn {
+  background-color: rgb(44, 65, 44);
+  margin-bottom: 0.1875rem;
+  width: 100%;
+}
+
+.container {
+  border: 2px solid hotpink;
+  width: 90%;
+}
+
+.row{ 
+  border: 2px solid blue;
+  margin: 2px;
+  padding: 2px;
+}
+
+.row .col.s3 {
+  float: left;
+  margin: 2px 0 0 0;
+  padding: 10px;
+}
+
+.row .col.s9 {
+  float: right;
+  margin: 2px 0 0 0;
+  padding: 10px;
+}
+
+.col{ 
+  border: 2px solid greenyellow;
+  display: inline;
+  margin: 2px;
+  padding: 10px;
+  width: 100%;
+}
+
+/************************/
+/*       Buttons        */
+/************************/
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
 }
