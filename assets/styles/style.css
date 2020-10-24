@@ -1,3 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  h1 {
+    margin: 8px;
+    text-align: center;
+  }
+  
+  h3 {
+    margin: 8px;
+    text-align: center;
+  }
+
 .footer {
     position: fixed;
     left: 0;
