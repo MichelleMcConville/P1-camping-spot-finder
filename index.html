@@ -15,20 +15,19 @@
 
 <body>
     <header>
-        <h1 style="text-align:center;">Camping Spot 🏕️ Finder</h1>
+        <h1>Camping Spot 🏕️ Finder</h1>
     </header>
     <main class="conatiner">
       <section class="row">
-        <article class="col s2">
-          <form action="">
-            <h6>Enter State Code:</h6><br>
-            <input type="text" id="addState" name="addState" value="" placeholder="Enter 2-digit State Code" maxlength="2">
-            <button class='btn btn-primary' id='searchBtn'><i class='fa fa-search'></i></button>
+        <article class="col s3">
+          <form>
+            <input id="addState" class="subject" placeholder="Enter 2-digit State" maxlength="2">
+            <button id="searchBtn" type="submit"><i class="fa fa-search"></i>This needs to be an Icon</button>
           </form>
         </article>
         <section id="stateList"></section>
       </section>
-      <section class="col s10">
+      <section class="col s9">
         <br><br>
         <!-- Dynamically building collapsible buttons-->
         <ul id="collapsibleBtn" class="collapsible"></ul> 
@@ -39,5 +38,6 @@
   </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./assets/scripts/script.js"></script>
 </body>
 </html>
