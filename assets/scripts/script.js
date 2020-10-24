@@ -63,16 +63,26 @@ $(document).ready(function(){
         var campName = response.data[i].name;
         var parkCode = response.data[i].parkCode;
         var campDescription = response.data[i].description;
-        var campAmenities = response.data[i].amenities;
+        // var campAmenities = response.data[i].amenities;
         var campSpots = response.data[i].campsites.totalSites;
-        var campFees = response.data[i].fees;
+        for (var j = 0; j < response.data[i].fees.length; j++) {
+        var campFees = response.data[i].fees.length > 0 ? (response.data[i].fees[j].cost ? response.data[i].fees[j].cost : "N/A") : "N/A";
+        }
         // var campEmail = response.data[i].contacts.emailAddresses[0].emailAddress;
         var campEmail = response.data[i].contacts.emailAddresses.length > 0 ? (response.data[i].contacts.emailAddresses[0].emailAddress ? response.data[i].contacts.emailAddresses[0].emailAddress : "N/A") : "N/A";
-        var campPhone = response.data[i].contacts.phoneNumbers;
-        var campUrl = response.data[i].reservationUrl;
-        var campAccessibility = response.data[i].accessibility;
-        var campHours = response.data[i].operatingHours;
-  
+        //var campPhone = response.data[i].contacts.phoneNumbers;
+        var campPhone = response.data[i].contacts.phoneNumbers.length > 0 ? (response.data[i].contacts.phoneNumbers[0].phoneNumber ? response.data[i].contacts.phoneNumbers[0].phoneNumber : "N/A") : "N/A";
+        var campUrl = response.data[i].url.length > 0 ? (response.data[i].url ? response.data[i].url : "N/A") : "N/A";
+        // var campAccessibility = response.data[i].accessibility;
+        // var campHours = response.data[i].operatingHours[0];
+        var campHoursFri = response.data[i].operatingHours[0].standardHours.friday;
+        var campHoursSat = response.data[i].operatingHours[0].standardHours.saturday;
+        var campHoursSun = response.data[i].operatingHours[0].standardHours.sunday;
+        var campHoursMon = response.data[i].operatingHours[0].standardHours.monday;
+        var campHoursTue = response.data[i].operatingHours[0].standardHours.tuesday;
+        var campHoursWed = response.data[i].operatingHours[0].standardHours.wednesday;
+        var campHoursThu = response.data[i].operatingHours[0].standardHours.thursday;
+
         console.log(response.data[i].name);
   
         $("#collapsibleBtn").append(
@@ -85,17 +95,20 @@ $(document).ready(function(){
             <hr>
             <p>Fees:💲 ${campFees}**</p>
             <hr>
-            <p>Amenities: ${campAmenities}**</p>
-            <hr>
             <p>📧 ${campEmail}</p>
             <hr>
             <p>☎️ ${campPhone}</p>
             <hr>
-            <p>Reservations: ${campUrl}</p>
+            <p>Website: ${campUrl}</p>
             <hr>
-            <p>Accessibility: ${campAccessibility}**</p>
-            <hr>
-            <p>Operating Hours: ${campHours}**</p>
+            <p>Operating Hours:</p><br>
+            <p>   Friday: ${campHoursFri}</p>
+            <p>   Saturday: ${campHoursSat}</p>
+            <p>   Sunday: ${campHoursSun}</p>
+            <p>   Monday: ${campHoursMon}</p>
+            <p>   Tuesday: ${campHoursTue}</p>
+            <p>   Wednesday: ${campHoursWed}</p>
+            <p>   Thursday: ${campHoursThu}</p>
           </span></div>
         </li>`
         )
