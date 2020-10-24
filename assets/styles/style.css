@@ -14,6 +14,41 @@ body {
     text-align: center;
   }
 
+  .btn {
+    border: 1px solid gray;
+    margin: 2px;
+  }
+  
+  .container {
+    border: 2px solid hotpink;
+    width: 90%;
+  }
+  
+  .row{ 
+    border: 2px solid blue;
+    margin: 2px;
+    padding: 2px;
+  }
+  
+  .row .col.s3 {
+    float: left;
+    margin: 2px 0 0 0;
+    padding: 10px;
+  }
+  
+  .row .col.s9 {
+    float: right;
+    margin: 2px 0 0 0;
+    padding: 10px;
+  }
+  
+  .col{ 
+    border: 2px solid greenyellow;
+    display: inline;
+    margin: 2px;
+    padding: 10px;
+    width: 100%;
+  } 
 .footer {
     position: fixed;
     left: 0;
