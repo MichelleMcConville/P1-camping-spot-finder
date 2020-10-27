@@ -116,6 +116,26 @@ $(document).ready(function(){
     });
   }
   
+  // To list out fees for each campsite
+  function renderFees(park, campNameNoSpaces) {
+    var campFees = park.fees.length;
+
+    if (campFees > 0) {
+      for (var j = 0; j < park.fees.length; j++) {
+        var feeCost = $("<p>")
+          .attr("id", "fees-cost")
+          .text("Cost: " + park.fees[j].cost);
+        var feeTitle = $("<p>")
+          .attr("id", "fees-title")
+          .text("Title: " + park.fees[j].title);
+        var feeDesc = $("<p>")
+          .attr("id", "fees-desc")
+          .text("Desc: " + park.fees[j].description);
+        $("#" + campNameNoSpaces).append(feeCost, feeTitle, feeDesc);
+      }
+    }
+  }
+
   // On click for search box
   $("#searchBtn").on("click", function(event) {
     event.preventDefault();
