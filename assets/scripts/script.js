@@ -59,26 +59,24 @@ $(document).ready(function () {
       for (var i = 0; i < response.data.length; i++) {
         var park = response.data[i];
         var campName = park.name;
-        console.log(campName);
         var campNameNoSpaces = campName.split(" ").join("");
         var parkCode = park.parkCode;
         var lat = park.latitude;
-        console.log(lat);
         var lng = park.longitude;
-        console.log(lng);
         var campDescription = park.description;
         var campSpots = park.campsites.totalSites;
-        var firstCome = park.campsites.numberOfSitesFirstComeFirstServe;
-        var reservable = park.campsites.numberOfSitesReservable;
+        var firstCome = park.numberOfSitesFirstComeFirstServe;
+        var reservable = park.numberOfSitesReservable;
         var electricHookUps = park.campsites.electricalHookups;
         var group = park.campsites.group;
         var horse = park.campsites.horse;
         var other = park.campsites.other;
         var rvOnly = park.campsites.rvOnly;
         var tentOnly = park.campsites.tentOnly;
-        var boat = park.campsites.walkToBoat;
-        var campEmail = park.contacts.emailAddresses.length > 0 ? (park.contacts.emailAddresses[0].emailAddress ? park.contacts.emailAddresses[0].emailAddress : "N/A") : "N/A";
-        var campPhone = park.contacts.phoneNumbers.length > 0 ? (park.contacts.phoneNumbers[0].phoneNumber ? park.contacts.phoneNumbers[0].phoneNumber : "N/A") : "N/A";
+        var campEmail = park.contacts.emailAddresses.length > 0 ? 
+            (park.contacts.emailAddresses[0].emailAddress ? park.contacts.emailAddresses[0].emailAddress : "N/A") : "N/A";
+        var campPhone = park.contacts.phoneNumbers.length > 0 ? 
+            (park.contacts.phoneNumbers[0].phoneNumber ? park.contacts.phoneNumbers[0].phoneNumber : "N/A") : "N/A";
         var campUrl = park.url.length > 0 ? (park.url ? park.url : "N/A") : "N/A";
         var campOPHours = park.operatingHours.length;
         var campHoursSun = "";
@@ -111,28 +109,27 @@ $(document).ready(function () {
           <div id="camp-name" class="collapsible-header"><i class="material-icons">place</i>${campName} (${parkCode})</div>
           <div class="collapsible-body"><span>
             <p id="camp-desc">${campDescription}</p><hr>
-            <p id="total-sites">Total Camp Sites: ${campSpots}</p><br>
-            <p id="first-come">1st Come 1st Serve: ${firstCome}</p>
-            <p id="reserve">Reservable: ${reservable}</p>
-            <p id="electrical">Electrical Hookups: ${electricHookUps}</p>
-            <p id="group">Group: ${group}</p>
-            <p id="horse">Horse: ${horse}</p>
-            <p id="other">Other: ${other}</p>
-            <p id="rv">RV Only: ${rvOnly}</p>
-            <p id="tent">Tent Only: ${tentOnly}</p>
-            <p id="boat">Walk to Boat: ${boat}</p><hr>
-            <p id=${campNameNoSpaces} class="camp-fees">💲 Fees:</p><br>
+            <p id="total-sites">Total Camp Sites:                       ${campSpots}</p><br>
+            <p id="first-come" class="sites"><i>1st Come 1st Serve: </i>${firstCome}</p>
+            <p id="reserve" class="sites"><i>Reservable:            </i>${reservable}</p>
+            <p id="electrical" class="sites"><i>Electrical Hookups: </i>${electricHookUps}</p>
+            <p id="group" class="sites"><i>Group:                   </i>${group}</p>
+            <p id="horse" class="sites"><i>Horse:                   </i>${horse}</p>
+            <p id="other" class="sites"><i>Other:                   </i>${other}</p>
+            <p id="rv" class="sites"><i>RV Only:                    </i>${rvOnly}</p>
+            <p id="tent" class="sites"><i>Tent Only:                </i>${tentOnly}</p><hr>
+            <p id=${campNameNoSpaces} class="camp-fees"></p><br>
             <p id="camp-email">📧 ${campEmail}</p><hr>
             <p id="camp-phone">☎️ ${campPhone}</p><hr>
-            <p id="website">Website: ${campUrl}</p><hr>
+            <p id="website" class="${campUrl !== "N/A" ? "show" : "hide"}">Website: <a href="${campUrl}" target="_blank">${campUrl}</a></p><hr>
             <p id="camp-hours">Operating Hours:</p><br>
-            <p>Sunday: ${campHoursSun}</p>
-            <p>Monday: ${campHoursMon}</p>
-            <p>Tuesday: ${campHoursTue}</p>
-            <p>Wednesday: ${campHoursWed}</p>
-            <p>Thursday: ${campHoursThu}</p>
-            <p>Friday: ${campHoursFri}</p>
-            <p>Saturday: ${campHoursSat}</p><br>
+            <p class="weekday"><i>Sunday:     </i>${campHoursSun}</p>
+            <p class="weekday"><i>Monday:     </i>${campHoursMon}</p>
+            <p class="weekday"><i>Tuesday:    </i>${campHoursTue}</p>
+            <p class="weekday"><i>Wednesday:  </i>${campHoursWed}</p>
+            <p class="weekday"><i>Thursday:   </i>${campHoursThu}</p>
+            <p class="weekday"><i>Friday:     </i>${campHoursFri}</p>
+            <p class="weekday"><i>Saturday:   </i>${campHoursSat}</p><br>
             <button id="mapBtn" class="mapBtn btn ${((lat !== "" && lat !== undefined) && (lng !== "" && lng !== undefined)) ? "show" : "hide"}" lat="${lat}" lng="${lng}" type="submit">Open Map</button>
           </span></div>
         </li>`
