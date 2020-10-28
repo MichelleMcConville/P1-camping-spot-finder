@@ -40,6 +40,14 @@ h3 {
   width: 100%;
 }
 
+.col {
+  border: 2px solid greenyellow;
+  display: inline;
+  margin: 2px;
+  padding: 10px;
+  width: 100%;
+}
+
 .container {
   border: 2px solid hotpink;
   width: 90%;
@@ -47,6 +55,13 @@ h3 {
 
 .hide {
   display: none;
+}
+
+.mapBtn {
+  background-color: rgb(60, 82, 60);
+  margin-bottom: 0.1875rem;
+  padding: 0;
+  width: 100%;
 }
 
 .row {
@@ -69,12 +84,8 @@ h3 {
   padding: 10px;
 }
 
-.col {
-  border: 2px solid greenyellow;
-  display: inline;
-  margin: 2px;
-  padding: 10px;
-  width: 100%;
+.show {
+  display: block;
 }
 
 /************************/
