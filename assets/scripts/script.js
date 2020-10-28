@@ -133,7 +133,7 @@ $(document).ready(function () {
             <p>Thursday: ${campHoursThu}</p>
             <p>Friday: ${campHoursFri}</p>
             <p>Saturday: ${campHoursSat}</p><br>
-            <button id="mapBtn" class="btn" lat="${lat}" lng="${lng}" type="submit">Open Map</button>
+            <button id="mapBtn" class="mapBtn btn ${((lat !== "" && lat !== undefined) && (lng !== "" && lng !== undefined)) ? "show" : "hide"}" lat="${lat}" lng="${lng}" type="submit">Open Map</button>
           </span></div>
         </li>`
         );
