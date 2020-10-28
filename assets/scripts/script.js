@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  var apiMapKey = "&key=nFa7pptsOAwKeABy7NDpY1EQLzmtJmV0";
   var stateCode = [];
   var stateHistory = "";
   
@@ -8,33 +8,13 @@ $(document).ready(function(){
   // Getting states from local storage
   function loadState() {
     stateCode = JSON.parse(localStorage.getItem("ls-state"));
-    console.log()
     if (stateCode) {
       stateData(stateCode[stateCode.length - 1])
     } else {
       stateCode = [];
     }
   }
-  
-  //Dynamically building State List under search box
-  function stateSearchList() {
-    $("#stateList").empty();
-    var count = 0;
-    for (var i = stateCode.length-1; i >= 0; i--) {
-      if (count++ < 5) {
-        var newBtn = $("<button>").attr("class", "listBtn btn stateBtn").attr("state-name", stateCode[i]).text(stateCode[i]);
-        console.log(newBtn);
-      $("#stateList").append(newBtn);
-      }
-    }
-  }
-  
-  // Saving states to local storage
-  function saveState() {
-    console.log("saveState");
-    localStorage.setItem("ls-state", JSON.stringify(stateCode));
-  }
-  
+
   // Loads state on refresh only add states if not in the list
   function stateData(stateHistory) {
     $("#addState").val("");
@@ -45,6 +25,23 @@ $(document).ready(function(){
       stateSearchList();
       var currentState = stateCode[stateCode.length-1];
       campGroundList(currentState);
+  }
+
+  //Dynamically building State List under search box
+  function stateSearchList() {
+    $("#stateList").empty();
+    var count = 0;
+    for (var i = stateCode.length-1; i >= 0; i--) {
+      if (count++ < 5) {
+        var newBtn = $("<button>").attr("class", "listBtn btn stateBtn").attr("state-name", stateCode[i]).text(stateCode[i]);
+      $("#stateList").append(newBtn);
+      }
+    }
+  }
+  
+  // Saving states to local storage
+  function saveState() {
+    localStorage.setItem("ls-state", JSON.stringify(stateCode));
   }
   
   // Listing out campgrounds
@@ -115,6 +112,17 @@ $(document).ready(function(){
       }
     });
   }
+
+  function renderMap(latLong) {
+    //if (lat !== null && lng !== null) {
+    var map = tt.map({
+      key: apiMapKey,
+      container: "map-div",
+      center: latLong,
+      zoom: 12,
+    });
+    //}
+  }
   
   // To list out fees for each campsite
   function renderFees(park, campNameNoSpaces) {
@@ -147,12 +155,26 @@ $(document).ready(function(){
     stateData(stateHistory);
   });
   
-  
   $(document).on("click", ".stateBtn", function(event) {
     event.preventDefault();
     selectedState = $(this).text().trim();
     campGroundList(selectedState);
   })
+  
+  $(document).on("click", "#mapBtn", function(event) {
+    event.preventDefault();
+    var lat = parseFloat($(this).attr("lat"));
+    var lng = parseFloat($(this).attr("lng"));
+    var latLong = {
+      lat: lat,
+      lng: lng,
+    };
+
+    if (lat !== NaN && lng !== NaN) {
+      //mapBtn.classList.remove("hide");
+      renderMap(latLong);
+    }
+  });
   
   $('.collapsible').collapsible();
   
