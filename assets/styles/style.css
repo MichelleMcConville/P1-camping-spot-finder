@@ -19,14 +19,32 @@ footer {
 }
 
 h1 {
-  margin: 8px;
-  padding: 0 8px 12px 8px;
+  background-color: #333333;
+  color: azure;
+  margin: 0;
+  padding: 10px 0 15px;
   text-align: center;
 }
 
 h3 {
   margin: 8px;
   text-align: center;
+}
+
+hr {
+  margin: 8px 0;
+}
+
+/* html { 
+  background: url(../images/tbd) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+p {
+  margin: 2px;
 }
 
 /************************/
@@ -41,7 +59,6 @@ h3 {
 }
 
 .col {
-  border: 2px solid greenyellow;
   display: inline;
   margin: 2px;
   padding: 10px;
@@ -49,8 +66,8 @@ h3 {
 }
 
 .container {
-  border: 2px solid hotpink;
-  width: 90%;
+  margin: 0;
+  width: 100%;
 }
 
 .hide {
@@ -65,14 +82,13 @@ h3 {
 }
 
 .row {
-  border: 2px solid blue;
   display: flex;
   flex-wrap: wrap;
   margin: 2px;
   padding: 2px;
 }
 
-.row .col.m4 {
+.row .col.m3 {
   float: left;
   margin: 2px 0 0 0;
   padding: 10px;
@@ -84,6 +100,12 @@ h3 {
   padding: 10px;
 }
 
+.sites,
+.weekday {
+  font-weight: 450;
+  margin-left: 15px;
+}
+
 .show {
   display: block;
 }
@@ -93,12 +115,15 @@ h3 {
 /************************/
 
 #addState.subject {
-  width: 80%;
+  text-align: center;
+  width: 100%;
 }
 
-/* .camp-fees, */
+#camp-email,
 #camp-hours,
 #camp-location,
+#camp-phone,
+#fees-cost,
 #total-sites,
 #website {
   font-weight: bold;
@@ -107,7 +132,7 @@ h3 {
 #camp-name {
   font-style: italic;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 #collapsibleBtn {
@@ -124,10 +149,8 @@ h3 {
 }
 
 #searchBtn {
-  border-radius: 24px;
-  height: 42px;
   padding: 0;
-  width: 42px;
+  width: 100%;
 }
 
 /************************/
