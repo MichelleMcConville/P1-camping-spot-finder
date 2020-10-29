@@ -18,6 +18,7 @@ footer, .push {
   left: 0;
   margin: 0;
   padding: 12px 0 15px;
+  position: fixed;
   text-align: center;
   width: 100vw;
 }
