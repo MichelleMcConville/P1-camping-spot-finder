@@ -2,31 +2,62 @@
 /*        Global        */
 /************************/
 
+a {
+  color: #0c51ec;
+}
+
 body {
-  display: flex;
   justify-content: center;
 }
 
 footer {
-  background-color: gray;
+  background-color: #333333;
   bottom: 0;
-  color: white;
+  clear: both;
+  color: azure;
+  position: fixed;
   left: 0;
-  height: 30px;
-  padding-top: 8px;
+  margin: 0;
+  padding: 10px 0 15px;
   text-align: center;
   width: 100%;
 }
 
+form {
+  font-size: 15px;
+  width: 100%;
+}
+
 h1 {
-  margin: 8px;
-  padding: 0 8px 12px 8px;
+  background-color: #333333;
+  clear: both;
+  color: azure;
+  margin: 0;
+  padding: 10px 0 15px;
   text-align: center;
+  width: 100%;
 }
 
 h3 {
   margin: 8px;
   text-align: center;
+}
+
+hr {
+  margin: 8px 0;
+  width: 100%;
+}
+
+html {
+  background: url(../images/nightSpotRev.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+p {
+  margin: 2px;
 }
 
 /************************/
@@ -35,22 +66,32 @@ h3 {
 
 .btn {
   background-color: rgb(60, 82, 60);
-  margin-bottom: 0.1875rem;
+  border-radius: 5px;
+  margin-bottom: 3px;
   padding: 0;
   width: 100%;
 }
 
-.col {
-  border: 2px solid greenyellow;
-  display: inline;
-  margin: 2px;
-  padding: 10px;
-  width: 100%;
+.collapsible-body {
+  padding: 15px;
+}
+
+.col.s12.m4 {
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.col.s12.m5 {
+  margin: 0 auto;
+  opacity: 75%;
+  padding: 0;
 }
 
 .container {
-  border: 2px solid hotpink;
-  width: 90%;
+  display: flex;
+  margin: 0;
+  width: 100%;
 }
 
 .hide {
@@ -59,29 +100,23 @@ h3 {
 
 .mapBtn {
   background-color: rgb(60, 82, 60);
-  margin-bottom: 0.1875rem;
+  margin-bottom: 0.3px;
   padding: 0;
   width: 100%;
 }
 
 .row {
-  border: 2px solid blue;
   display: flex;
   flex-wrap: wrap;
-  margin: 2px;
-  padding: 2px;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 
-.row .col.m4 {
-  float: left;
-  margin: 2px 0 0 0;
-  padding: 10px;
-}
-
-.row .col.m8 {
-  float: right;
-  margin: 2px 0 0 0;
-  padding: 10px;
+.sites,
+.weekday {
+  font-weight: 450;
+  margin-left: 15px;
 }
 
 .show {
@@ -93,21 +128,30 @@ h3 {
 /************************/
 
 #addState.subject {
-  width: 80%;
+  border: 1px solid azure;
+  border-radius: 5px;
+  font-size: x-large;
+  margin-top: 18px;
+  opacity: 80%;
+  text-align: center;
+  width: 99%;
 }
 
-/* .camp-fees, */
+#camp-email,
 #camp-hours,
 #camp-location,
+#camp-phone,
+#fees-cost,
 #total-sites,
 #website {
   font-weight: bold;
 }
 
 #camp-name {
+  border-radius: 5px;
   font-style: italic;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 #collapsibleBtn {
@@ -115,28 +159,56 @@ h3 {
 }
 
 #map-box {
+  margin: auto;
   margin-top: 25px;
 }
 
-#map-div { 
-  width: 100vw; 
-  height: 100vh; 
+#map-div {
+  border-radius: 5px;
+  height: 500px;
+  width: 500px;
 }
 
 #searchBtn {
-  border-radius: 24px;
-  height: 42px;
-  padding: 0;
-  width: 42px;
+  margin-bottom: 25px;
 }
 
 /************************/
 /*       Buttons        */
 /************************/
 
+.btn {
+  background: linear-gradient(to left, #2b213b, #9672cc, rgb(240, 113, 10), rgb(60, 82, 60), rgb(21, 36, 21));
+  color: black;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: 0 0 6px #333;
+  width: 100%;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: #ecf5ff;
+  box-shadow: 0 8px 8px 0 #2b213b;
+  transform: translateY(0.1rem);
+  transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/************************/
+/*      Collapsible     */
+/************************/
+
 .collapsible {
   background-color: #eee;
-  color: #444;
+  border-radius: 5px;
+  color: black;
   cursor: pointer;
   margin: 15px 0;
   padding: 18px;
@@ -153,8 +225,8 @@ h3 {
 }
 
 .content {
-  padding: 0 18px;
+  background-color: azure;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  padding: 0 18px;
 }

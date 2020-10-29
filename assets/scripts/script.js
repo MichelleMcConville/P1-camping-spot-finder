@@ -54,31 +54,16 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
 
       for (var i = 0; i < response.data.length; i++) {
         var park = response.data[i];
-        var campName = park.name;
-        var campNameNoSpaces = campName.split(" ").join("");
-        var parkCode = park.parkCode;
-        var lat = park.latitude;
-        var lng = park.longitude;
         var campDescription = park.description;
-        var campSpots = park.campsites.totalSites;
-        var firstCome = park.numberOfSitesFirstComeFirstServe;
-        var reservable = park.numberOfSitesReservable;
-        var electricHookUps = park.campsites.electricalHookups;
-        var group = park.campsites.group;
-        var horse = park.campsites.horse;
-        var other = park.campsites.other;
-        var rvOnly = park.campsites.rvOnly;
-        var tentOnly = park.campsites.tentOnly;
         var campEmail = park.contacts.emailAddresses.length > 0 ? 
             (park.contacts.emailAddresses[0].emailAddress ? park.contacts.emailAddresses[0].emailAddress : "N/A") : "N/A";
+        var campName = park.name;
+        var campNameNoSpaces = campName.split(" ").join("");
         var campPhone = park.contacts.phoneNumbers.length > 0 ? 
             (park.contacts.phoneNumbers[0].phoneNumber ? park.contacts.phoneNumbers[0].phoneNumber : "N/A") : "N/A";
-        var campUrl = park.url.length > 0 ? (park.url ? park.url : "N/A") : "N/A";
-        var campOPHours = park.operatingHours.length;
         var campHoursSun = "";
         var campHoursMon = "";
         var campHoursTue = "";
@@ -86,6 +71,20 @@ $(document).ready(function () {
         var campHoursThu = "";
         var campHoursFri = "";
         var campHoursSat = "";
+        var campOPHours = park.operatingHours.length;
+        var campSpots = park.campsites.totalSites;
+        var campUrl = park.url.length > 0 ? (park.url ? park.url : "N/A") : "N/A";
+        var electricHookUps = park.campsites.electricalHookups;
+        var firstCome = park.numberOfSitesFirstComeFirstServe;
+        var group = park.campsites.group;
+        var horse = park.campsites.horse;
+        var lat = park.latitude;
+        var lng = park.longitude;
+        var other = park.campsites.other;  
+        var parkCode = park.parkCode;    
+        var reservable = park.numberOfSitesReservable;
+        var rvOnly = park.campsites.rvOnly;     
+        var tentOnly = park.campsites.tentOnly;
         if (campOPHours > 0) {
           campHoursSun = park.operatingHours[0].standardHours.sunday;
           campHoursMon = park.operatingHours[0].standardHours.monday;
@@ -106,10 +105,10 @@ $(document).ready(function () {
 
         $("#collapsibleBtn").append(
           `<li>
-          <div id="camp-name" class="collapsible-header"><i class="material-icons">place</i>${campName} (${parkCode})</div>
-          <div class="collapsible-body"><span>
+            <div id="camp-name" class="collapsible-header"><i class="material-icons">place</i>${campName} (${parkCode})</div>
+            <div class="collapsible-body"><span>
             <p id="camp-desc">${campDescription}</p><hr>
-            <p id="total-sites">Total Camp Sites:                       ${campSpots}</p><br>
+            <p id="total-sites">Total Camp Sites:                       ${campSpots}</p>
             <p id="first-come" class="sites"><i>1st Come 1st Serve: </i>${firstCome}</p>
             <p id="reserve" class="sites"><i>Reservable:            </i>${reservable}</p>
             <p id="electrical" class="sites"><i>Electrical Hookups: </i>${electricHookUps}</p>
@@ -118,21 +117,21 @@ $(document).ready(function () {
             <p id="other" class="sites"><i>Other:                   </i>${other}</p>
             <p id="rv" class="sites"><i>RV Only:                    </i>${rvOnly}</p>
             <p id="tent" class="sites"><i>Tent Only:                </i>${tentOnly}</p><hr>
-            <p id=${campNameNoSpaces} class="camp-fees"></p><br>
-            <p id="camp-email">📧 ${campEmail}</p><hr>
-            <p id="camp-phone">☎️ ${campPhone}</p><hr>
-            <p id="website" class="${campUrl !== "N/A" ? "show" : "hide"}">Website: <a href="${campUrl}" target="_blank">${campUrl}</a></p><hr>
-            <p id="camp-hours">Operating Hours:</p><br>
-            <p class="weekday"><i>Sunday:     </i>${campHoursSun}</p>
-            <p class="weekday"><i>Monday:     </i>${campHoursMon}</p>
-            <p class="weekday"><i>Tuesday:    </i>${campHoursTue}</p>
-            <p class="weekday"><i>Wednesday:  </i>${campHoursWed}</p>
-            <p class="weekday"><i>Thursday:   </i>${campHoursThu}</p>
-            <p class="weekday"><i>Friday:     </i>${campHoursFri}</p>
-            <p class="weekday"><i>Saturday:   </i>${campHoursSat}</p><br>
+            <p id=${campNameNoSpaces} class="camp-fees"></p><hr>
+            <p id="website"     class="${campUrl !== "N/A" ? "show" : "hide"}">Website: <a href="${campUrl}" target="_blank">${campUrl}</a></p><hr>
+            <p id="camp-email"  class="${campEmail !== "N/A" ? "show" : "hide"}">📧     <a href="mailto:">                  ${campEmail}</a></p><hr>
+            <p id="camp-phone"  class="${campPhone !== "N/A" ? "show" : "hide"}">☎️     <a href="tel:">                     ${campPhone}</a></p><hr>
+            <p id="camp-hours">Operating Hours:</p>
+            <p class="weekday"><i>Sunday:    </i>${campHoursSun}</p>
+            <p class="weekday"><i>Monday:    </i>${campHoursMon}</p>
+            <p class="weekday"><i>Tuesday:   </i>${campHoursTue}</p>
+            <p class="weekday"><i>Wednesday: </i>${campHoursWed}</p>
+            <p class="weekday"><i>Thursday:  </i>${campHoursThu}</p>
+            <p class="weekday"><i>Friday:    </i>${campHoursFri}</p>
+            <p class="weekday"><i>Saturday:  </i>${campHoursSat}</p><br>
             <button id="mapBtn" class="mapBtn btn ${((lat !== "" && lat !== undefined) && (lng !== "" && lng !== undefined)) ? "show" : "hide"}" lat="${lat}" lng="${lng}" type="submit">Open Map</button>
-          </span></div>
-        </li>`
+            </span></div>
+          </li>`
         );
         renderFees(park, campNameNoSpaces);
       }
@@ -140,14 +139,12 @@ $(document).ready(function () {
   }
 
   function renderMap(latLong) {
-    //if (lat !== null && lng !== null) {
     var map = tt.map({
       key: apiMapKey,
       container: "map-div",
       center: latLong,
-      zoom: 12,
+      zoom: 14,
     });
-    //}
   }
 
   // To list out fees for each campsite
@@ -159,13 +156,10 @@ $(document).ready(function () {
         var feeCost = $("<p>")
           .attr("id", "fees-cost")
           .text("Cost: " + park.fees[j].cost);
-        var feeTitle = $("<p>")
-          .attr("id", "fees-title")
-          .text("Title: " + park.fees[j].title);
         var feeDesc = $("<p>")
           .attr("id", "fees-desc")
-          .text("Desc: " + park.fees[j].description);
-        $("#" + campNameNoSpaces).append(feeCost, feeTitle, feeDesc);
+          .text("" + park.fees[j].description);
+        $("#" + campNameNoSpaces).append(feeCost, feeDesc);
       }
     }
   }
@@ -198,7 +192,6 @@ $(document).ready(function () {
     };
 
     if (lat !== NaN && lng !== NaN) {
-      //mapBtn.classList.remove("hide");
       renderMap(latLong);
     }
   });
