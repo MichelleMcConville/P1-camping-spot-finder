@@ -14,10 +14,11 @@
 
   <body>
     <h1>Camping Spot 🏕️ Finder</h1>
+    
+      <main class="row">
 
-    <main class="container">
-      
-      <div class="row">
+        <div id="left" class="col m1"></div>
+
         <div class="col s12 m4">
           <form>
             <input id="addState" class="subject" placeholder="Enter State Abbreviation" maxlength="2" />
@@ -26,20 +27,26 @@
 
           <div id="stateList"></div> <!-- stateSearchList f(x) -->
 
-          <div id="map-box" class="row">
+          <div id="map-box">
             <div id="map-div"></div>
           </div>
         </div>
+
+        <div id="middle" class="col m1"></div>
 
         <div class="col s12 m5">
           <!-- Dynamically building collapsible buttons-->
           <ul id="collapsibleBtn" class="collapsible"></ul>
         </div>
 
-      <footer>Made with ❤️️ by Michelle McConville, Julian Viso and Md Mahbubur Rahman</footer>
+        <div id="right"class="col m1"></div>
 
-    </main>
+        <div class="push"></div>
 
+      </main>
+
+    <footer>&copy; 2020 | Made with ❤️️ by Michelle McConville, Julian Viso & Md Mahbubur Rahman</footer>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script>

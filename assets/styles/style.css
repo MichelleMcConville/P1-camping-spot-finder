@@ -10,17 +10,16 @@ body {
   justify-content: center;
 }
 
-footer {
+footer, .push {
   background-color: #333333;
   bottom: 0;
   clear: both;
   color: azure;
-  position: fixed;
   left: 0;
   margin: 0;
-  padding: 10px 0 15px;
+  padding: 12px 0 15px;
   text-align: center;
-  width: 100%;
+  width: 100vw;
 }
 
 form {
@@ -35,7 +34,7 @@ h1 {
   margin: 0;
   padding: 10px 0 15px;
   text-align: center;
-  width: 100%;
+  width: 100vw;
 }
 
 h3 {
@@ -54,6 +53,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100%;
 }
 
 p {
@@ -67,7 +67,7 @@ p {
 .btn {
   background-color: rgb(60, 82, 60);
   border-radius: 5px;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   padding: 0;
   width: 100%;
 }
@@ -76,22 +76,26 @@ p {
   padding: 15px;
 }
 
-.col.s12.m4 {
+.col.s12.m4,
+.col.s12.m5,
+.col.m1 {
   justify-content: center;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
+.col.s12.m4 {
+  width: 473px;
+}
+
 .col.s12.m5 {
-  margin: 0 auto;
   opacity: 75%;
-  padding: 0;
 }
 
 .container {
   display: flex;
   margin: 0;
-  width: 100%;
+  width: 100vw;
 }
 
 .hide {
@@ -100,9 +104,15 @@ p {
 
 .mapBtn {
   background-color: rgb(60, 82, 60);
-  margin-bottom: 0.3px;
+  margin-bottom: 3px;
   padding: 0;
   width: 100%;
+}
+
+.push {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 
 .row {
@@ -130,6 +140,7 @@ p {
 #addState.subject {
   border: 1px solid azure;
   border-radius: 5px;
+  color: azure;
   font-size: x-large;
   margin-top: 18px;
   opacity: 80%;
@@ -158,15 +169,19 @@ p {
   padding: 18px;
 }
 
+#left-col,
+
 #map-box {
+  justify-content: center;
   margin: auto;
-  margin-top: 25px;
+  margin: 25px 0;
 }
 
 #map-div {
+  margin: auto;
   border-radius: 5px;
-  height: 500px;
-  width: 500px;
+  height: 473px;
+  width: 473px;
 }
 
 #searchBtn {
@@ -229,4 +244,67 @@ p {
   display: none;
   overflow: hidden;
   padding: 0 18px;
+}
+
+/************************/
+/*        @Media        */
+/************************/
+@media screen and (max-width: 1024px) {
+  #left,
+  #middle,
+  #right {
+    margin: 0;
+    width: 4%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #left,
+  #middle,
+  #right {
+    display: none;
+  }
+  .col.s12.m4,
+  .col.s12.m5 {
+    margin: auto;
+    width: 98%
+  }
+  #map-div {
+    width: 100%
+  }
+  #addState.subject {
+    font-size: large;
+  }
+}  
+
+@media screen and (max-width: 600px) {
+  footer {
+    padding: 12px 10px 15px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  .col {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  h1 {
+    font-size: 30px;
+  }
+  .col.col.s12.m4,
+  .col.s12.m5 {
+    margin: auto;
+    width: 98%
+  }
+  #map-div {
+    width: 100%
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 20px;
+  }
 }
